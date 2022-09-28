@@ -1,0 +1,28 @@
+This list was generated on Fri Oct 24 17:45:07 CEST 2014 for sparc
+It contains a list of essential packages (which are also build-essential).
+
+base-files
+base-passwd
+bash
+bsdutils
+coreutils
+dash
+debianutils
+diffutils
+dpkg
+e2fsprogs
+findutils
+grep
+gzip
+hostname
+init
+libc-bin
+login
+mount
+ncurses-base
+ncurses-bin
+perl-base
+sed
+sysvinit-utils
+tar
+util-linux

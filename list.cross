@@ -1,0 +1,58 @@
+                List of Cross-Build-Essential packages
+                    as of 2014-08-12, Debian sid
+
+This file lists the non-essential packages that are cross-build-
+essential.  The list is not closed under the "depends on" relation, so
+one will usually need to install more packages than given here.
+
+This list attempts to document the set of cross-build-essential
+packages as well as possible.  However, it is not authoritative
+(actually, there is no authoritative list at all).
+
+The list is given below in a format which is readable by both humans and
+programs.  The format is described at the end of this file.
+
+libc6-dev:@DEB_TARGET_ARCH@
+  Provides the ISO C standard library
+  Indirectly depended on by g++, but we'll ignore
+  it since libc6-dev is used for non-C++ programs too.
+
+BEGIN LIST OF PACKAGES
+gcc-@DEB_TARGET_GNU_TYPE@ (>= 4:10.2) | gcc:@DEB_TARGET_ARCH@
+g++-@DEB_TARGET_GNU_TYPE@ (>= 4:10.2) | g++:@DEB_TARGET_ARCH@
+  
+  NOTE:
+  The libstdc++ -dev library is not needed, as g++ depends on it
+
+dpkg-cross
+  To provide autoconf cache variables and cmake toolchain file
+
+END LIST OF PACKAGES
+
+Here's the format definition:
+
+   - First line is the following, without any leading or trailing
+     whitespace:
+        BEGIN LIST OF PACKAGES
+
+   - Last line is the following, without any leading or trailing
+     whitespace:
+        END LIST OF PACKAGES
+
+   - A line with leading whitespace is a comment.
+
+   - Other lines are joined with end-of-line replaced by comma, and
+     the result is parsed like the body of the Build-Depends field.
+     The list of build-essential packages for a particular
+     architecture is constructed from the result list by ignoring all
+     the package name - package version pairs which would be ignored
+     if we were building for that architecture and then removing the
+     architecture specifications.
+
+The Python program list2depends parses stdin as if it were this
+file and outputs one line that is suitable for use in a dependency
+field body of a Debian binary package.
+
+Local Variables:
+mode: text
+End:

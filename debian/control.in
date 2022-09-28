@@ -1,0 +1,7 @@
+Source: @src_name@
+Section: devel
+Priority: optional
+Maintainer: Matthias Klose <doko@debian.org>
+Uploaders: Scott James Remnant <scott@netsplit.com>
+Standards-Version: 4.5.1
+Build-Depends: debhelper (>= 11), python3:any, g++ (>= 4:10.2)

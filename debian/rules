@@ -1,0 +1,133 @@
+#!/usr/bin/make -f
+# debian/rules for the Debian build-essential package.
+# Copyright © 2003, 2004 Scott James Remnant <scott@netsplit.com>
+
+# Uncomment this to turn on verbose mode. 
+#export DH_VERBOSE=1
+
+DEB_HOST_ARCH ?= $(shell dpkg-architecture -qDEB_HOST_ARCH)
+src_name := $(shell dpkg-parsechangelog -S Source)
+
+ifeq ($(src_name),build-essential)
+  cross_archs := $(shell grep -v '^\#' debian/cross-targets)
+else ifeq ($(src_name),build-essential-mipsen)
+  cross_archs := $(shell grep -v '^\#' debian/cross-targets-mipsen)
+else
+  $(error Unknown src_name)
+endif
+
+build: build-arch build-indep
+build-arch: build-arch-stamp
+build-indep: build-indep-stamp
+
+debian/control: debian/control.in debian/control.cross debian/cross-targets
+	sed -e "s/@src_name@/$(src_name)/" debian/control.in > $@
+ifeq ($(src_name),build-essential)
+	cat debian/control.native.in >> $@
+endif
+	for a in $(cross_archs); do \
+	  sed -e "s/@DEB_TARGET_ARCH@/$$a/g" debian/control.cross >> $@; \
+	done
+
+configure-stamp:
+	dh_testdir
+	./configure --prefix=/usr
+	touch configure-stamp
+
+build-arch-stamp: configure-stamp
+	dh_testdir
+	$(MAKE)
+	touch build-arch-stamp
+
+build-indep-stamp: configure-stamp
+	dh_testdir
+	for a in $(cross_archs); do \
+	  t=$$(dpkg-architecture -f -a$$a -qDEB_HOST_GNU_TYPE 2>/dev/null | sed 's/_/-/'); \
+	  echo $$a $$t; \
+	  sed "s/@DEB_TARGET_ARCH@/$$a/g;s/@DEB_TARGET_GNU_TYPE@/$$t/g" \
+	    list.cross > list.$$a; \
+	done
+	touch build-indep-stamp
+
+clean:
+	dh_testdir
+	dh_testroot
+	rm -f *-stamp
+	rm -f config.cache config.log config.status
+	rm -rf autom4te.cache
+	for f in list.*; do \
+	  case $$f in list|list.cross) continue; esac; \
+	  rm -f $$f; \
+	done
+	rm -f essential-packages-list
+	dh_clean
+
+# Make it as clean as svn can make it.
+svnclean: clean
+	rm -rf `svn propget svn:ignore`
+
+install-arch: build-arch
+ifeq ($(src_name),build-essential)
+	dh_testdir
+	dh_testroot
+	dh_prep
+	dh_installdirs
+
+	$(MAKE) prefix=$(CURDIR)/debian/build-essential/usr install
+
+	printf > debian/build-essential.substvars "build-essential=%s\n" \
+		"`./list2depends $(DEB_HOST_ARCH) < list`"
+
+	mkdir -p debian/build-essential/usr/share/doc/build-essential
+	ln -sf	../../build-essential/list \
+		../../build-essential/essential-packages-list \
+		debian/build-essential/usr/share/doc/build-essential
+endif
+
+install-indep: build-indep
+	set -e; \
+	for a in $(cross_archs); do \
+	  p=crossbuild-essential-$$a; \
+	  $(MAKE) prefix=$(CURDIR)/debian/$$p/usr install; \
+	  rm -f debian/$$p/usr/share/build-essential/essential-packages-list; \
+	  rm -rf debian/$$p/usr/share/$$p; \
+	  mv debian/$$p/usr/share/build-essential \
+		debian/$$p/usr/share/$$p; \
+	  printf > debian/$$p.substvars "cross-essential=%s\n" \
+		"`./list2depends $$a < list.$$a`"; \
+	  cp list.$$a debian/$$p/usr/share/$$p/list; \
+	  mkdir -p debian/$$p/usr/share/doc/$$p; \
+	  ln -sf ../../$$p/list debian/$$p/usr/share/doc/$$p; \
+	done
+
+binary-arch: build-arch install-arch
+	dh_testdir
+	dh_testroot
+	dh_installdocs -a
+	dh_installchangelogs -a
+	dh_link -a
+	dh_compress -a
+	dh_fixperms -a
+	dh_installdeb -a
+	dh_gencontrol -a
+	dh_md5sums -a
+	dh_builddeb -a
+
+binary-indep: build-indep install-indep
+	dh_testdir
+	dh_testroot
+ifneq (,$(cross_archs))
+	dh_installdocs -i
+	dh_installchangelogs -i
+	dh_link -i
+	dh_compress -i
+	dh_fixperms -i
+	dh_installdeb -i
+	dh_gencontrol -i
+	dh_md5sums -i
+	dh_builddeb -i
+endif
+
+binary: binary-indep binary-arch
+.PHONY: build-arch build-indep clean svnclean \
+    binary-indep binary-arch binary install-arch install-indep

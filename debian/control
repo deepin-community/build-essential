@@ -1,0 +1,184 @@
+Source: build-essential
+Section: devel
+Priority: optional
+Maintainer: Matthias Klose <doko@debian.org>
+Uploaders: Scott James Remnant <scott@netsplit.com>
+Standards-Version: 4.5.1
+Build-Depends: debhelper (>= 11), python3:any, g++ (>= 4:10.2)
+
+Package: build-essential
+Architecture: any
+Depends: ${build-essential}, ${misc:Depends}
+Description: Informational list of build-essential packages
+ If you do not plan to build Debian packages, you don't need this
+ package.  Starting with dpkg (>= 1.14.18) this package is required
+ for building Debian packages.
+ .
+ This package contains an informational list of packages which are
+ considered essential for building Debian packages.  This package also
+ depends on the packages on that list, to make it easy to have the
+ build-essential packages installed.
+ .
+ If you have this package installed, you only need to install whatever
+ a package specifies as its build-time dependencies to build the
+ package.  Conversely, if you are determining what your package needs
+ to build-depend on, you can always leave out the packages this
+ package depends on.
+ .
+ This package is NOT the definition of what packages are
+ build-essential; the real definition is in the Debian Policy Manual.
+ This package contains merely an informational list, which is all
+ most people need.   However, if this package and the manual disagree,
+ the manual is correct.
+
+Package: crossbuild-essential-amd64
+Architecture: all
+Depends: ${cross-essential}, ${misc:Depends}
+Description: Informational list of cross-build-essential packages
+ If you do not plan to cross build Debian packages, you don't need
+ this package.  Starting with sbuild (>= 0.63.0) this package is
+ required for cross building Debian packages in a chroot.
+ .
+ This package contains an informational list of packages which are
+ considered essential for cross building Debian packages.  This
+ package also depends on the packages on that list, to make it easy to
+ have the cross-build-essential packages installed.
+ .
+ If you have this package installed, you only need to install whatever
+ a package specifies as its build-time dependencies to cross build the
+ package.  Conversely, if you are determining what your package needs
+ to build-depend on, you can always leave out the packages this
+ package depends on.
+
+Package: crossbuild-essential-arm64
+Architecture: all
+Depends: ${cross-essential}, ${misc:Depends}
+Description: Informational list of cross-build-essential packages
+ If you do not plan to cross build Debian packages, you don't need
+ this package.  Starting with sbuild (>= 0.63.0) this package is
+ required for cross building Debian packages in a chroot.
+ .
+ This package contains an informational list of packages which are
+ considered essential for cross building Debian packages.  This
+ package also depends on the packages on that list, to make it easy to
+ have the cross-build-essential packages installed.
+ .
+ If you have this package installed, you only need to install whatever
+ a package specifies as its build-time dependencies to cross build the
+ package.  Conversely, if you are determining what your package needs
+ to build-depend on, you can always leave out the packages this
+ package depends on.
+
+Package: crossbuild-essential-armel
+Architecture: all
+Depends: ${cross-essential}, ${misc:Depends}
+Description: Informational list of cross-build-essential packages
+ If you do not plan to cross build Debian packages, you don't need
+ this package.  Starting with sbuild (>= 0.63.0) this package is
+ required for cross building Debian packages in a chroot.
+ .
+ This package contains an informational list of packages which are
+ considered essential for cross building Debian packages.  This
+ package also depends on the packages on that list, to make it easy to
+ have the cross-build-essential packages installed.
+ .
+ If you have this package installed, you only need to install whatever
+ a package specifies as its build-time dependencies to cross build the
+ package.  Conversely, if you are determining what your package needs
+ to build-depend on, you can always leave out the packages this
+ package depends on.
+
+Package: crossbuild-essential-armhf
+Architecture: all
+Depends: ${cross-essential}, ${misc:Depends}
+Description: Informational list of cross-build-essential packages
+ If you do not plan to cross build Debian packages, you don't need
+ this package.  Starting with sbuild (>= 0.63.0) this package is
+ required for cross building Debian packages in a chroot.
+ .
+ This package contains an informational list of packages which are
+ considered essential for cross building Debian packages.  This
+ package also depends on the packages on that list, to make it easy to
+ have the cross-build-essential packages installed.
+ .
+ If you have this package installed, you only need to install whatever
+ a package specifies as its build-time dependencies to cross build the
+ package.  Conversely, if you are determining what your package needs
+ to build-depend on, you can always leave out the packages this
+ package depends on.
+
+Package: crossbuild-essential-i386
+Architecture: all
+Depends: ${cross-essential}, ${misc:Depends}
+Description: Informational list of cross-build-essential packages
+ If you do not plan to cross build Debian packages, you don't need
+ this package.  Starting with sbuild (>= 0.63.0) this package is
+ required for cross building Debian packages in a chroot.
+ .
+ This package contains an informational list of packages which are
+ considered essential for cross building Debian packages.  This
+ package also depends on the packages on that list, to make it easy to
+ have the cross-build-essential packages installed.
+ .
+ If you have this package installed, you only need to install whatever
+ a package specifies as its build-time dependencies to cross build the
+ package.  Conversely, if you are determining what your package needs
+ to build-depend on, you can always leave out the packages this
+ package depends on.
+
+Package: crossbuild-essential-powerpc
+Architecture: all
+Depends: ${cross-essential}, ${misc:Depends}
+Description: Informational list of cross-build-essential packages
+ If you do not plan to cross build Debian packages, you don't need
+ this package.  Starting with sbuild (>= 0.63.0) this package is
+ required for cross building Debian packages in a chroot.
+ .
+ This package contains an informational list of packages which are
+ considered essential for cross building Debian packages.  This
+ package also depends on the packages on that list, to make it easy to
+ have the cross-build-essential packages installed.
+ .
+ If you have this package installed, you only need to install whatever
+ a package specifies as its build-time dependencies to cross build the
+ package.  Conversely, if you are determining what your package needs
+ to build-depend on, you can always leave out the packages this
+ package depends on.
+
+Package: crossbuild-essential-ppc64el
+Architecture: all
+Depends: ${cross-essential}, ${misc:Depends}
+Description: Informational list of cross-build-essential packages
+ If you do not plan to cross build Debian packages, you don't need
+ this package.  Starting with sbuild (>= 0.63.0) this package is
+ required for cross building Debian packages in a chroot.
+ .
+ This package contains an informational list of packages which are
+ considered essential for cross building Debian packages.  This
+ package also depends on the packages on that list, to make it easy to
+ have the cross-build-essential packages installed.
+ .
+ If you have this package installed, you only need to install whatever
+ a package specifies as its build-time dependencies to cross build the
+ package.  Conversely, if you are determining what your package needs
+ to build-depend on, you can always leave out the packages this
+ package depends on.
+
+Package: crossbuild-essential-s390x
+Architecture: all
+Depends: ${cross-essential}, ${misc:Depends}
+Description: Informational list of cross-build-essential packages
+ If you do not plan to cross build Debian packages, you don't need
+ this package.  Starting with sbuild (>= 0.63.0) this package is
+ required for cross building Debian packages in a chroot.
+ .
+ This package contains an informational list of packages which are
+ considered essential for cross building Debian packages.  This
+ package also depends on the packages on that list, to make it easy to
+ have the cross-build-essential packages installed.
+ .
+ If you have this package installed, you only need to install whatever
+ a package specifies as its build-time dependencies to cross build the
+ package.  Conversely, if you are determining what your package needs
+ to build-depend on, you can always leave out the packages this
+ package depends on.
