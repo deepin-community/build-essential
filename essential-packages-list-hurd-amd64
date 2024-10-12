@@ -1,4 +1,4 @@
-This list was generated on Do 10. Okt 11:37:48 CEST 2024 for amd64
+This list was generated on Do 10. Okt 11:38:34 CEST 2024 for hurd-amd64
 It contains a list of essential packages (which are also build-essential).
 
 base-files
@@ -11,11 +11,12 @@ debianutils
 diffutils
 dpkg
 findutils
-grep
 gzip
 hostname
+hurd
 init-system-helpers
 libc-bin
+login
 ncurses-base
 ncurses-bin
 perl-base
