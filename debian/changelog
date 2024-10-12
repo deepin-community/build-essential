@@ -1,3 +1,9 @@
+build-essential (12.12+deepin1) unstable; urgency=medium
+
+  * Downgrade dependencies on gcc and g++ to 12.3.
+
+ -- WangYuli <wangyuli@uniontech.com>  Sat, 12 Oct 2024 10:09:40 +0800
+
 build-essential (12.12) unstable; urgency=medium
 
   * Source-only upload.

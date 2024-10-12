@@ -18,8 +18,8 @@ libc6-dev:@DEB_TARGET_ARCH@
   it since libc6-dev is used for non-C++ programs too.
 
 BEGIN LIST OF PACKAGES
-gcc-@DEB_TARGET_GNU_TYPE@ (>= 4:14.2) | gcc:@DEB_TARGET_ARCH@
-g++-@DEB_TARGET_GNU_TYPE@ (>= 4:14.2) | g++:@DEB_TARGET_ARCH@
+gcc-@DEB_TARGET_GNU_TYPE@ (>= 4:12.3) | gcc:@DEB_TARGET_ARCH@
+g++-@DEB_TARGET_GNU_TYPE@ (>= 4:12.3) | g++:@DEB_TARGET_ARCH@
   
   NOTE:
   The libstdc++ -dev library is not needed, as g++ depends on it
