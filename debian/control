@@ -3,7 +3,7 @@ Section: devel
 Priority: optional
 Maintainer: Matthias Klose <doko@debian.org>
 Standards-Version: 4.7.0
-Build-Depends: debhelper (>= 11), python3:any, g++ (>= 4:14.2)
+Build-Depends: debhelper (>= 11), python3:any, g++ (>= 4:12.3)
 
 Package: build-essential
 Architecture: any

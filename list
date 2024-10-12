@@ -33,8 +33,8 @@ libc6-dev [!alpha !ia64 !hurd-i386 !hurd-amd64] | libc0.3-dev [hurd-i386 hurd-am
 libc6-dev-sparc64 [sparc]
   Used only on the sparc architecture.
 
-gcc (>= 4:14.2)
-g++ (>= 4:14.2)
+gcc (>= 4:12.3)
+g++ (>= 4:12.3)
 
   NOTE:
   The libstdc++ -dev library is not needed, as g++ depends on it
