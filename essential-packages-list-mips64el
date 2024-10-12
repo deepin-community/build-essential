@@ -1,4 +1,4 @@
-This list was generated on Sun 03 Jan 2021 11:30:37 AM CET for mips64el
+This list was generated on Do 10. Okt 11:37:47 CEST 2024 for mips64el
 It contains a list of essential packages (which are also build-essential).
 
 base-files
@@ -16,7 +16,6 @@ gzip
 hostname
 init-system-helpers
 libc-bin
-login
 ncurses-base
 ncurses-bin
 perl-base

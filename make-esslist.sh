@@ -29,11 +29,11 @@ case "`lsb_release -is`" in
 	dist='n/a';;
 esac
 
-# include only linux, kfreebsd, hurd archs
+# include only linux, hurd archs
 # remove discontinuted archs (e.g. arm, sh)
 arches=`dpkg-architecture -L \
-	| egrep '^((kfreebsd|hurd)-)?[^-]+$' \
-	| egrep -v '^((kfreebsd|hurd)-)?(arm|armeb|avr32|m32r|or1k|mips|powerpcel|powerpcspe|s390|sh|sh3|sh3eb|sh4eb)$'`
+	| egrep '^(hurd-)?[^-]+$' \
+	| egrep -v '^(hurd-)?(arm|armeb|avr32|m32r|or1k|mips|powerpcel|powerpcspe|s390|sh|sh3|sh3eb|sh4eb)$'`
 
 for arch in $arches
 do

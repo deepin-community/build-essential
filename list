@@ -1,5 +1,5 @@
                    List of Build-Essential packages
-                    as of 2017-09-17, Debian sid
+                    as of 2024-10-10, Debian sid
 
 This file lists the non-essential packages that are build-essential.
 The list is not closed under the "depends on" relation, so one will
@@ -25,7 +25,7 @@ The list is given below in a format which is readable by both humans and
 programs.  The format is described at the end of this file.
 
 BEGIN LIST OF PACKAGES
-libc6-dev [!alpha !ia64 !hurd-i386] | libc0.3-dev [hurd-i386] | libc6.1-dev [alpha ia64] | libc-dev
+libc6-dev [!alpha !ia64 !hurd-i386 !hurd-amd64] | libc0.3-dev [hurd-i386 hurd-amd64] | libc6.1-dev [alpha ia64] | libc-dev
   Provides the ISO C standard library
   Indirectly depended on by g++, but we'll ignore
   it since libc6-dev is used for non-C++ programs too.
@@ -33,8 +33,8 @@ libc6-dev [!alpha !ia64 !hurd-i386] | libc0.3-dev [hurd-i386] | libc6.1-dev [alp
 libc6-dev-sparc64 [sparc]
   Used only on the sparc architecture.
 
-gcc (>= 4:10.2)
-g++ (>= 4:10.2)
+gcc (>= 4:14.2)
+g++ (>= 4:14.2)
 
   NOTE:
   The libstdc++ -dev library is not needed, as g++ depends on it
@@ -44,7 +44,7 @@ make
   dependency since debian/rules will need it even if dpkg-dev
   stopped depending on it
 
-dpkg-dev (>= 1.17.11)
+dpkg-dev (>= 1.22.11)
   Provides dpkg-genchanges and other scripts.  Versioned, because
   of support for the build-time dependency fields in /debian/control
   and dpkg-architecture support for OS and CPU information.
@@ -59,7 +59,7 @@ dpkg-dev (>= 1.17.11)
   the file
      `/usr/share/doc/build-essential/essential-packages-list'
  
-hurd-dev [hurd-i386]
+hurd-dev [hurd-i386 hurd-amd64]
   Provides libpthread.so (and other such essential components).
 
 END LIST OF PACKAGES

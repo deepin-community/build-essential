@@ -1,5 +1,5 @@
                 List of Cross-Build-Essential packages
-                    as of 2014-08-12, Debian sid
+                    as of 2024-10-10, Debian sid
 
 This file lists the non-essential packages that are cross-build-
 essential.  The list is not closed under the "depends on" relation, so
@@ -18,14 +18,11 @@ libc6-dev:@DEB_TARGET_ARCH@
   it since libc6-dev is used for non-C++ programs too.
 
 BEGIN LIST OF PACKAGES
-gcc-@DEB_TARGET_GNU_TYPE@ (>= 4:10.2) | gcc:@DEB_TARGET_ARCH@
-g++-@DEB_TARGET_GNU_TYPE@ (>= 4:10.2) | g++:@DEB_TARGET_ARCH@
+gcc-@DEB_TARGET_GNU_TYPE@ (>= 4:14.2) | gcc:@DEB_TARGET_ARCH@
+g++-@DEB_TARGET_GNU_TYPE@ (>= 4:14.2) | g++:@DEB_TARGET_ARCH@
   
   NOTE:
   The libstdc++ -dev library is not needed, as g++ depends on it
-
-dpkg-cross
-  To provide autoconf cache variables and cmake toolchain file
 
 END LIST OF PACKAGES
 

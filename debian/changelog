@@ -1,3 +1,29 @@
+build-essential (12.12) unstable; urgency=medium
+
+  * Source-only upload.
+
+ -- Matthias Klose <doko@debian.org>  Fri, 11 Oct 2024 08:15:58 +0200
+
+build-essential (12.11) unstable; urgency=medium
+
+  * Bump dependencies on gcc and g++ to 14.2.
+  * Remove kfreebsd-* lists.
+  * Bump standards version.
+  * Build crossbuild-essential-riscv64.
+  * crossbuild-essential-*: Drop dependency on dpkg-cross.
+
+ -- Matthias Klose <doko@debian.org>  Thu, 10 Oct 2024 11:30:07 +0200
+
+build-essential (12.10) unstable; urgency=medium
+
+  * Add hurd-amd64 support (Samuel Thibault). Closes: #1037291.
+  * Add loongarch support (Dandan Zhang). Closes: #1025153.
+  * Bump dependencies on gcc and g++ to 12.3.
+  * Remove Scott Remnant from uploaders. Closes: #1012007.
+  * Bump standards version.
+
+ -- Matthias Klose <doko@debian.org>  Fri, 23 Jun 2023 12:43:44 +0200
+
 build-essential (12.9) unstable; urgency=medium
 
   * Bump dependencies on gcc and g++ to 10.2.
