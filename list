@@ -44,7 +44,7 @@ make
   dependency since debian/rules will need it even if dpkg-dev
   stopped depending on it
 
-dpkg-dev (>= 1.22.11)
+dpkg-dev (>= 1.22.6)
   Provides dpkg-genchanges and other scripts.  Versioned, because
   of support for the build-time dependency fields in /debian/control
   and dpkg-architecture support for OS and CPU information.
