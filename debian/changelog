@@ -1,3 +1,9 @@
+build-essential (12.12+deepin3) unstable; urgency=medium
+
+  * feat: add sw64 support
+
+ -- hudeng <hudeng@deepin.org>  Wed, 28 May 2025 11:05:33 +0800
+
 build-essential (12.12+deepin2) unstable; urgency=medium
 
   * Downgrade dependencies on dpkg-dev to 1.22.6.
